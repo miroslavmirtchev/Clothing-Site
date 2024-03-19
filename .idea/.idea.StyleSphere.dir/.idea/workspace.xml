@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1e9f38a-d5b3-43a4-90f6-7269b95c8b41" name="Changes" comment="" />
+    <list default="true" id="f1e9f38a-d5b3-43a4-90f6-7269b95c8b41" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StyleSphere.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StyleSphere.dir/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +22,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
+    "nodejs_interpreter_path": "C:/Program Files/nodejs/npm",
+    "nodejs_package_manager_path": "C:\\Program Files\\nodejs\\npm.cmd",
+    "settings.editor.selected.configurable": "settings.nodejs",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -41,6 +45,7 @@
       <updated>1710855593841</updated>
       <workItem from="1710855595999" duration="5351000" />
       <workItem from="1710866617347" duration="159000" />
+      <workItem from="1710866805742" duration="1072000" />
     </task>
     <servers />
   </component>
@@ -50,5 +55,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
