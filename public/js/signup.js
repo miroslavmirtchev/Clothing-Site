@@ -9,6 +9,25 @@ const number = document.querySelector('#number');
 const tac = document.querySelector('#terms-and-cond');
 const notification = document.querySelector('#notification');
 
+//send data
+const sendData = (path, data) => {
+    fetch(path, {
+        method: 'post',
+        headers: new Headers({'Content-Type': 'application/json'}),
+        body: JSON.stringify(data)
+    }).then((res) => res.json())
+        .then(response => {
+            console.log(response);
+        })
+}
+
+const processData = (data) => {
+    loader.style.display = null;
+    if (data.alert) {
+        showAlert(data.alert);
+    }
+}
+
 submitBtn.addEventListener('click', () => {
     if (name.value.length < 3) {
         showAlert('name must be 3 letters long');
@@ -36,25 +55,6 @@ submitBtn.addEventListener('click', () => {
         })
     }
 
-    //send data
-    const sendData = (path, data) => {
-        fetch(path, {
-            method: 'post',
-            headers: new Headers({'Content-Type': 'application/json'}),
-            body: JSON.stringify(data)
-        }).then((res) => res.json())
-            .then(response => {
-                console.log(response);
-            })
-    }
-
-    const processData = (data) => {
-        loader.style.display = null;
-        if (data.alert) {
-            showAlert(data.alert);
-        }
-    }
-})
 
 // alert function
     const showAlert = (msg) => {
@@ -65,6 +65,7 @@ submitBtn.addEventListener('click', () => {
         setTimeout(() => {
             alertBox.classList.remove('show');
         }, 3000);
+
+
     }
- 
 })
