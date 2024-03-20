@@ -5,7 +5,7 @@ const path = require('path');
 
 //firebase admin
 
-var serviceAccount = require("./clothing-site-b85f5-firebase-adminsdk-krhrz-ddf076602c.json");
+var serviceAccount = require("./clothing-site-b85f5-firebase-adminsdk-krhrz-6bc50749c3.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
@@ -45,30 +45,33 @@ app.post('/signup', (req, res) => {
     } else if(!tac){
         return res.json({'alert': 'you must agree to our terms and conditions'});
     }
+
+    // store user in db
+    db.collection('users').doc(email).get()
+        .then(user => {
+            if(user.exists){
+                return res.json({'alert': 'email already exists'});
+            } else{
+                // encrypt the password before storing it.
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(password, salt, (err, hash) => {
+                        req.body.password = hash;
+                        db.collection('users').doc(email).set(req.body)
+                            .then(data => {
+                                res.json({
+                                    name: req.body.name,
+                                    email: req.body.email,
+                                    seller: req.body.seller,
+                                })
+                            })
+                    })
+                })
+            }
+        })
+    
+    res.json('data received');
 })
 
-// store user in db
-db.collection('users').doc(email).get()
-    .then(user => {
-        if(user.exists){
-            return res.json({'alert': 'email already exists'});
-        } else{
-            // encrypt the password before storing it.
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(password, salt, (err, hash) => {
-                    req.body.password = hash;
-                    db.collection('users').doc(email).set(req.body)
-                        .then(data => {
-                            res.json({
-                                name: req.body.name,
-                                email: req.body.email,
-                                seller: req.body.seller,
-                            })
-                        })
-                })
-            })
-        }
-    })
 
 
 app.get('/404', (req, res) => {

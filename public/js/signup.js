@@ -21,10 +21,29 @@ const sendData = (path, data) => {
         })
 }
 
+// alert function
+const showAlert = (msg) => {
+    let alertBox = document.querySelector('.alert-box');
+    let alertMsg = document.querySelector('.alert-msg');
+    alertMsg.innerHTML = msg;
+    alertBox.classList.add('show');
+    setTimeout(() => {
+        alertBox.classList.remove('show');
+    }, 3000);
+
+
+}
+
+
 const processData = (data) => {
     loader.style.display = null;
-    if (data.alert) {
+    if(data.alert){
         showAlert(data.alert);
+    } else if(data.name){
+        // create authToken
+        data.authToken = generateToken(data.email);
+        sessionStorage.user = JSON.stringify(data);
+        location.replace('/');
     }
 }
 
@@ -53,19 +72,5 @@ submitBtn.addEventListener('click', () => {
             notification: notification.checked,
             seller: false
         })
-    }
-
-
-// alert function
-    const showAlert = (msg) => {
-        let alertBox = document.querySelector('.alert-box');
-        let alertMsg = document.querySelector('.alert-msg');
-        alertMsg.innerHTML = msg;
-        alertBox.classList.add('show');
-        setTimeout(() => {
-            alertBox.classList.remove('show');
-        }, 3000);
-
-
     }
 })
