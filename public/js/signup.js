@@ -17,7 +17,7 @@ const sendData = (path, data) => {
         body: JSON.stringify(data)
     }).then((res) => res.json())
         .then(response => {
-            console.log(response);
+            processData(response);
         })
 }
 
