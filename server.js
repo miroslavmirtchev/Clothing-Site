@@ -11,6 +11,7 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
+
 let db=admin.firestore();
 
 let staticPath = path.join(__dirname, "public");
