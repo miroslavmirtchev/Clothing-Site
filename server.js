@@ -80,6 +80,15 @@ app.get('/login', (req,res) =>{
 
 app.post('/login',(res,req) =>{
     let{email,password}= req.body;
+    
+    if(!email.length || !password.length){
+        return res.json({'alert':},'fill all the inputs')
+    }
+    
+    db.collection('users').doc(email).get()
+        .then(user =>{ //check if email exists
+            return res.json({'alert':'log in email does not exist'})
+        })
 })
 
 app.get('/404', (req, res) => {
