@@ -86,8 +86,25 @@ app.post('/login',(res,req) =>{
     }
     
     db.collection('users').doc(email).get()
-        .then(user =>{ //check if email exists
-            return res.json({'alert':'log in email does not exist'})
+        .then(user =>{//check if email exists
+            if(!user.exists) {
+                return res.json({'alert': 'log in email does not exist'})
+            }
+            else{
+                bcrypt.compare(password, user.data().password,(err,result) =>{
+                    if(result){
+                        let data=user.data();
+                        return res.json({
+                            name:data.name,
+                            email:data.email,
+                            seller:data.seller,
+                        })
+                    }
+                    else{
+                        return res.json({'alert':'password is incorrect'});
+                    }
+                })
+            }
         })
 })
 
