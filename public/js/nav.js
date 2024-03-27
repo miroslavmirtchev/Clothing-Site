@@ -10,7 +10,7 @@
                     <button class="search-btn">Search</button>
                 </div>
                 <a>
-                <img src="/img/user.png" alt="">
+                <img src="/img/user.png" id="user-img" alt="">
                 <div class="login-logout-popup hide">
                 <p class="account-info">Logged in as,name</p>
                 <button class="btn" id="user-btn">Log Out</button>
@@ -33,7 +33,7 @@ createNav();
 
 //nav popup
 const userImageButton = document.querySelector('#user-img');
-const userPop=document.querySelector('.login-logout-popup');
+const userPopup=document.querySelector('.login-logout-popup');
 const popuptext = document.querySelector('.account-info');
 const actionBtn = document.querySelector('#user-btn');
 
@@ -45,7 +45,7 @@ window.onload = () => {
     let user = JSON.parse(sessionStorage.user || null);
     if(user != null){
         // means user is logged in
-        popuptext.innerHTML = `log in as, ${user.name}`;
+        popuptext.innerHTML = `logged in as, ${user.name}`;
         actionBtn.innerHTML = 'log out';
         actionBtn.addEventListener('click', () => {
             sessionStorage.clear();
