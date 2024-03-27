@@ -78,6 +78,9 @@ app.get('/login', (req,res) =>{
     res.sendFile(path.join(staticPath,"login.html"))
 })
 
+app.post('/login',(res,req) =>{
+    let{email,password}= req.body;
+})
 
 app.get('/404', (req, res) => {
     res.sendFile(path.join(staticPath, "404.html"));
