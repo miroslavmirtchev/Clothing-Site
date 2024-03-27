@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 
 // firebase admin setup
-let serviceAccount = require("clothing-site-b85f5-firebase-adminsdk-krhrz-6e08f768f3.json");
+var serviceAccount = require(path.join(__dirname, 'clothing-site-b85f5-firebase-adminsdk-krhrz-6e08f768f3.json'));
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
