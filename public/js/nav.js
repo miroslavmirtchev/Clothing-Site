@@ -33,7 +33,7 @@ createNav();
 
 //nav popup
 const userImageButton = document.querySelector('#user-img');
-const userPop=document.querySelector('login-logout-popup');
+const userPop=document.querySelector('.login-logout-popup');
 const popuptext = document.querySelector('.account-info');
 const actionBtn = document.querySelector('#user-btn');
 
