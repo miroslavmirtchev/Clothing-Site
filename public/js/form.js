@@ -20,7 +20,7 @@ const tac = document.querySelector('#terms-and-cond') || null;
 const notification = document.querySelector('#notification') || null;
 
 submitBtn.addEventListener('click', () => {
-    if(name!=null){
+    if(name!=null){ //sign up page
         if(name.value.length < 3){
             return res.json({'alert': 'name must be 3 letters long'});
         } else if(!email.length){
@@ -33,6 +33,12 @@ submitBtn.addEventListener('click', () => {
             return res.json({'alert': 'invalid number, please enter valid one'});
         } else if(!tac){
             return res.json({'alert': 'you must agree to our terms and conditions'});
+        }
+    }
+    else{
+        //login page
+        if(!email.value.length || !password.value.length){
+            showAlert('fill all the inputs');
         }
     }
     })
