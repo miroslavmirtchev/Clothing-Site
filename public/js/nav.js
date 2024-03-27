@@ -9,7 +9,13 @@
                     <input type="text" class="search-box" placeholder="search brand, product">
                     <button class="search-btn">Search</button>
                 </div>
-                <a href="#"><img src="img/user.png" alt=""></a>
+                <a>
+                <img src="img/user.png" alt="">
+                <div class="login-logout-popup hide">
+                <p class="account-info">Logged in as,name</p>
+                <button class="btn" id="user-btn">Log Out</button>
+                </div>
+                </a>
                 <a href="#"><img src="img/cart.png" alt=""></a>
             </div>
         </div>
