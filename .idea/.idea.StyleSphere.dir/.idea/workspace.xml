@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1e9f38a-d5b3-43a4-90f6-7269b95c8b41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="f1e9f38a-d5b3-43a4-90f6-7269b95c8b41" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +76,7 @@
       <workItem from="1711014265475" duration="1138000" />
       <workItem from="1711559878287" duration="1380000" />
       <workItem from="1711562771543" duration="3363000" />
-      <workItem from="1711569474576" duration="1016000" />
+      <workItem from="1711569474576" duration="1416000" />
     </task>
     <servers />
   </component>
