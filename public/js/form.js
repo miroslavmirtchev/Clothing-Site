@@ -1,8 +1,10 @@
 ﻿// redirect to home page if user logged in
+import res from "express/lib/response";
+
 window.onload = () => {
-    if(sessionStorage.user){
+    if (sessionStorage.user) {
         user = JSON.parse(sessionStorage.user);
-        if(compareToken(user.authToken, user.email)){
+        if (compareToken(user.authToken, user.email)) {
             location.replace('/');
         }
     }
