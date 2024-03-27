@@ -82,7 +82,7 @@ app.post('/login',(res,req) =>{
     let{email,password}= req.body;
     
     if(!email.length || !password.length){
-        return res.json({'alert':},'fill all the inputs')
+        return res.json({'alert':'fill all the inputs'});
     }
     
     db.collection('users').doc(email).get()
