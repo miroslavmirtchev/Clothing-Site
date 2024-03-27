@@ -1,5 +1,4 @@
 ﻿// redirect to home page if user logged in
-import res from "express/lib/response";
 
 window.onload = () => {
     if (sessionStorage.user) {
