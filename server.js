@@ -5,7 +5,7 @@ const path = require('path');
 
 //firebase admin
 
-let serviceAccount = require("./clothing-site-b85f5-firebase-adminsdk-krhrz-6bc50749c3.json");
+let serviceAccount = require("./.env/clothing-site-b85f5-firebase-adminsdk-krhrz-6e08f768f3.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
