@@ -20,28 +20,44 @@ const tac = document.querySelector('#terms-and-cond') || null;
 const notification = document.querySelector('#notification') || null;
 
 submitBtn.addEventListener('click', () => {
-    if(name!=null){ //sign up page
-        if(name.value.length < 3){
+    if (name != null) { //sign up page
+        if (name.value.length < 3) {
             return res.json({'alert': 'name must be 3 letters long'});
-        } else if(!email.length){
+        } else if (!email.length) {
             return res.json({'alert': 'enter your email'});
-        } else if(password.length < 8){
+        } else if (password.length < 8) {
             return res.json({'alert': 'password should be 8 letters long'});
-        } else if(!number.length){
+        } else if (!number.length) {
             return res.json({'alert': 'enter your phone number'});
-        } else if(!Number(number) || number.length < 10){
+        } else if (!Number(number) || number.length < 10) {
             return res.json({'alert': 'invalid number, please enter valid one'});
-        } else if(!tac){
+        } else if (!tac.checked) {
             return res.json({'alert': 'you must agree to our terms and conditions'});
+        } else {
+            loader.style.display = 'block';
+            sendData('/signup', {
+                name: name.value,
+                email: email.value,
+                password: password.value,
+                number: number.value,
+                tac: tac.checked,
+                notification: notification.checked,
+                seller: false
+            })
         }
-    }
-    else{
+    } else {
         //login page
-        if(!email.value.length || !password.value.length){
+        if (!email.value.length || !password.value.length) {
             showAlert('fill all the inputs');
+        } else {
+            loader.style.display = 'block';
+            sendData('/login', {
+                email: email.value,
+                password: password.value,
+            })
         }
     }
-    })
+})
 
     //send data
 const sendData = (path, data) => {
@@ -81,4 +97,3 @@ const processData = (data) => {
     
     
     }
-})
