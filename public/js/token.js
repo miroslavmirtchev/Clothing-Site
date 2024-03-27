@@ -9,6 +9,7 @@ const generateToken = (key) => {
     }
     return token;
 }
+
 const compareToken = (token, key) => {
     let string = '';
     for(let i = 0; i < token.length; i=i+2){
@@ -22,10 +23,9 @@ const compareToken = (token, key) => {
     return false;
 }
 
-//common functions
+//  common functions
 
-
-//send data
+// send data function
 const sendData = (path, data) => {
     fetch(path, {
         method: 'post',
@@ -46,12 +46,16 @@ const processData = (data) => {
         data.authToken = generateToken(data.email);
         sessionStorage.user = JSON.stringify(data);
         location.replace('/');
+    } else if(data == true){
+        // seller page
+        let user = JSON.parse(sessionStorage.user);
+        user.seller = true;
+        sessionStorage.user = JSON.stringify(user);
+        location.reload();
     }
 }
 
-
-
-//alert function
+// alert function
 const showAlert = (msg) => {
     let alertBox = document.querySelector('.alert-box');
     let alertMsg = document.querySelector('.alert-msg');
@@ -60,6 +64,4 @@ const showAlert = (msg) => {
     setTimeout(() => {
         alertBox.classList.remove('show');
     }, 3000);
-
-
 }
