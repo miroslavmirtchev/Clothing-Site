@@ -3,20 +3,20 @@
 
     nav.innerHTML = `
         <div class="nav">
-            <img src="/img/dark-logo.png" class="brand-logo" alt="">
+            <img src="../img/dark-logo.png" class="brand-logo" alt="">
             <div class="nav-items">
                 <div class="search">
                     <input type="text" class="search-box" placeholder="search brand, product">
-                    <button class="search-btn">Search</button>
+                    <button class="search-btn">search</button>
                 </div>
                 <a>
-                <img src="/img/user.png" id="user-img" alt="">
-                <div class="login-logout-popup hide">
-                <p class="account-info">Logged in as,name</p>
-                <button class="btn" id="user-btn">Log Out</button>
-                </div>
+                    <img src="../img/user.png" id="user-img" alt="">
+                    <div class="login-logout-popup hide">
+                        <p class="account-info">Logged in as, name</p>
+                        <button class="btn" id="user-btn">Log out</button>
+                    </div>
                 </a>
-                <a href="#"><img src="/img/cart.png" alt=""></a>
+                <a href="/cart"><img src="../img/cart.png" alt=""></a>
             </div>
         </div>
         <ul class="links-container">
@@ -31,9 +31,9 @@
 
 createNav();
 
-//nav popup
+// nav popup
 const userImageButton = document.querySelector('#user-img');
-const userPopup=document.querySelector('.login-logout-popup');
+const userPopup = document.querySelector('.login-logout-popup');
 const popuptext = document.querySelector('.account-info');
 const actionBtn = document.querySelector('#user-btn');
 
@@ -45,8 +45,8 @@ window.onload = () => {
     let user = JSON.parse(sessionStorage.user || null);
     if(user != null){
         // means user is logged in
-        popuptext.innerHTML = `logged in as, ${user.name}`;
-        actionBtn.innerHTML = 'log out';
+        popuptext.innerHTML = `Logged in as, ${user.name}`;
+        actionBtn.innerHTML = 'Log out';
         actionBtn.addEventListener('click', () => {
             sessionStorage.clear();
             location.reload();
@@ -60,3 +60,13 @@ window.onload = () => {
         })
     }
 }
+
+// search box
+
+const searchBtn = document.querySelector('.search-btn');
+const searchBox = document.querySelector('.search-box');
+searchBtn.addEventListener('click', () => {
+    if(searchBox.value.length){
+        location.href = `/search/${searchBox.value}`
+    }
+})
