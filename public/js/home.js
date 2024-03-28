@@ -52,7 +52,7 @@ const createProductCards = (data, parent) => {
     let end = '</div>';
 
     for(let i = 0; i < data.length; i++){
-        if(data[i].id != decodeURI(location.pathname.split('/').pop())){
+        if(data[i].id !== decodeURI(location.pathname.split('/').pop())){
             middle += `
             <div class="product-card">
                 <div class="product-image">
