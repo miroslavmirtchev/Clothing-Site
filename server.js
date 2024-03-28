@@ -20,7 +20,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // aws parameters
-const region = "ap-south-1";
+const region = "eu-north-1";
 const bucketName = "style-sphere";
 const accessKeyId = process.env.AWS_ACCESS_KEY;
 const secretAccessKey = process.env.AWS_SECRET_KEY;
