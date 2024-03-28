@@ -4,8 +4,8 @@
     const preBtn = [...document.querySelectorAll('.pre-btn')];
 
     productContainers.forEach((item, i) => {
-        let containerDimenstions = item.getBoundingClientRect();
-        let containerWidth = containerDimenstions.width;
+        let containerDimentions = item.getBoundingClientRect();
+        let containerWidth = containerDimentions.width;
 
         nxtBtn[i].addEventListener('click', () => {
             item.scrollLeft += containerWidth;
